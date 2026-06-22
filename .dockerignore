@@ -1,0 +1,4 @@
+quotes.txt
+.env
+*.pyc
+__pycache__/
