@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quotes</title>
+    <style>
+        body {
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 0;
+            z-index: 10;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #333;
+            color: aqua;
+        }
+        .content {
+            margin-top: 80px; /* Space for fixed nav */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+        }
+        p {
+            font-size: 2em;
+            text-align: center;
+            max-width: 80%;
+            margin: 20px 0;
+        }
+        .fixed-bottom-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #333;
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/quotes">Quotes</a>
+        <a href="/about">About Us</a>
+    </nav>
+    <div class="content">
+        <h1>Liked Quotes</h1>
+        <p id="quote">{{ quote }}</p>
+    </div>
+    <button class="fixed-bottom-btn" onclick="generateQuote()">Generate New Quote</button>
+    <script>
+        const fonts = ['Arial', 'Georgia', 'Times New Roman', 'Courier New', 'Verdana', 'Trebuchet MS'];
+        const colors = ['#FF0000', '#f05e30', '#0000FF', '#FF00FF', '#973e91', '#112511', '#a077da', '#800080' ,'#636460'];
+        
+        function getRandomItem(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+        
+        function setRandomStyle() {
+            const quote = document.getElementById('quote');
+            quote.style.fontFamily = getRandomItem(fonts);
+            quote.style.color = getRandomItem(colors);
+        }
+        
+        function generateQuote() {
+            window.location.href = '/quotes';
+        }
+        
+        setRandomStyle();
+        
+        setTimeout(function() {
+            window.location.href = '/quotes';
+        }, 50000);  // Auto-refresh after 50 seconds
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: quotes-app-deploy
+  name: quotes-deploy
+  namespace: test
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: quotes-app
+  template:
+    metadata:
+      name: quotes-app-pod
+      labels:
+        app: quotes-app
+    spec:
+      containers:
+      - name: quotes-app
+        image: sandiledocker/quotes_img
+        envFrom:
+        - configMapRef:
+            name: quotes-config
+        volumeMounts:
+        - name: quotes-volume
+          mountPath: /etc/quotes/quotes.txt
+          subPath: quotes.txt
+        envFrom:
+        - configMapRef:
+            name: quotes-config
+        volumeMounts:
+        - name: quotes-volume
+          mountPath: /etc/quotes/quotes.txt
+          subPath: quotes.txt
+        ports:
+        - containerPort: 5000
+      volumes:
+      - name: quotes-volume
+        configMap:
+          name: quotes-file-config
+          items:
+          - key: quotes.txt
+            path: quotes.txt
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: quotes-service
+  namespace: test
+spec:
+  selector:
+    app: quotes-app
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+    nodePort: 30080
+  type: NodePort

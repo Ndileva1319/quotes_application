@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  quotes_app:
+    build: .
+    image: quotes_img
+    container_name: quotes_app
+    env_file: .env
+    environment:
+      - PORT=${PORT:-5000}
+      - QUOTES_FILE=${QUOTES_FILE:-/etc/quotes/quotes.txt}
+    ports:
+      - "${PORT:-5000}:${PORT:-5000}"
+    volumes:
+      - "./quotes.txt:${QUOTES_FILE:-/etc/quotes/quotes.txt}:ro"
+    networks:
+      - wp-net
+
+networks:
+  wp-net:
+    name: wp-mynetwork
+    driver: bridge
