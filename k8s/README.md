@@ -11,7 +11,6 @@ kubectl create namespace test
 ```bash
 kubectl apply -f k8s/quotes-configmaps.yaml -n test
 kubectl apply -f k8s/quotes-app-deploy---service.yaml -n test
-kubectl apply -f k8s/quotes-app-pod.yaml -n test
 ```
 
 Notes:

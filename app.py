@@ -25,14 +25,15 @@ try:
         lines = f.readlines()
 except Exception:
     lines = []
-    # Remove the first and last lines (the curly braces)
-    lines = [line.strip() for line in lines if line.strip()]
-    if lines[0].startswith('{'):
-        lines = lines[1:]
-    if lines and lines[-1].endswith('}'):
-        lines = lines[:-1]
-    # Remove trailing commas and surrounding quotes
-    quotes_list = [line.strip().rstrip(',').strip('"') for line in lines if line.strip()]
+
+# Remove the first and last lines (the curly braces)
+lines = [line.strip() for line in lines if line.strip()]
+if lines and lines[0].startswith('{'):
+    lines = lines[1:]
+if lines and lines[-1].endswith('}'):
+    lines = lines[:-1]
+# Remove trailing commas and surrounding quotes
+quotes_list = [line.strip().rstrip(',').strip('"') for line in lines if line.strip()]
 
 @app.before_request
 def before_request():

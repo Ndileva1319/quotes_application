@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quotes-config
+  namespace: test
+data:
+  PORT: "5000"
+  QUOTES_FILE: "/etc/quotes/quotes.txt"
+  quotes.txt: |
+    {
+    "The best way to predict the future is to invent it. - Alan Kay",
+    "Life is 10% what happens to us and 90% how we react to it. - Charles R. Swindoll",
+    "The only way to do great work is to love what you do. - Steve Jobs",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+    "Believe you can and you're halfway there. - Theodore Roosevelt",
+    "One big reason for a winning attitude is that you will take the necessary steps and not quit when the going gets difficult.",
+    "One day or day one. It's your choice.",
+    "The best way to guarantee a loss is to quit.",
+    "Regret for the time wasted can become a power of good in the time that remains.",
+    "Losers visualize the penalties of failure, Winners visualize the rewards of success.",
+    "You can’t go back and change the beginning, but you can start where you are and change the ending.",
+    "Don't give up. Normally it is the last key on the ring which opens the door.",
+    "IT'S THE will, NOT THE skill.",
+    "You don’t learn to walk by following rules. You learn by doing, and falling over.",
+    "Arise, awake, and stop not till the goal is reached.",
+    "The only thing standing between you and outrageous success is continuous progress.",
+    "The beautiful thing about learning is that nobody can take it away from you.",
+    "An investment in knowledge pays the best interest.",
+    "The more that you read, the more things you will know. The more that you learn, the more places you'll go.",
+    "The way to get started is to quit talking and begin doing.",
+    "Practice as if you are the worst, Perform as if you are the best.",
+    "pain and loss are inevitable and we should let go of trying to resist them.",
+    "the more you embrace being uncertain and not knowing, the more comfortable you will feel in knowing what you don't know",
+    "If you’re stuck on a problem, don’t sit there and think about it just start working on it. Even if you don’t know what you’re doing, the simple act of working on it will eventually cause the right ideas to show up in your head.",
+    "We needed to stop asking about the meaning of life, and instead to think of ourselves as those who were being questioned by life—daily and hourly",
+    "It is one of the basic tenets of logotherapy that man's main concern is not to gain pleasure or to avoid pain but rather to see a meaning in his life.",
+    "The hardest financial skill is getting the goalpost to stop moving.",
+
+    "No one—not a single person out of a thousand—said that to be happy you should try to work as hard as you can to make money to buy the things you want. No one—not a single person—said it’s important to be at least as wealthy as the people around you, and if you have more than they do it’s real success. No one—not a single person—said you should choose your work based on your desired future earning power. ",
+
+    "The point is that the ceiling of social comparison is so high that virtually no one will ever hit it. Which means it’s a battle that can never be won, or that the only way to win is to not fight to begin with—to accept that you might have enough, even if it’s less than those around you",
+    "One day or day one. It's your choice.",
+    "Real difficulties can be overcome; it is only the imaginary ones that are unconquerable.",
+    "Success doesn't come from what you do occasionally. It comes from what you do consistently.",
+    "The beautiful thing about learning is that nobody can take it away from you.",
+    "The most important thing to do in solving a problem is to begin.",
+    "Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.",
+    "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "Learning never exhausts the mind.",
+    "You don’t understand anything until you learn it more than one way.",
+    "In learning you will teach, and in teaching you will learn.",
+    "You don’t learn to walk by following rules. You learn by doing, and falling over.",
+    "Practice as if you are the worst, Perform as if you are the best.",
+    "The things always happens that you really believe in; and the belief in a thing makes it happen."
+    }

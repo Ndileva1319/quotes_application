@@ -26,19 +26,12 @@ spec:
         - name: quotes-volume
           mountPath: /etc/quotes/quotes.txt
           subPath: quotes.txt
-        envFrom:
-        - configMapRef:
-            name: quotes-config
-        volumeMounts:
-        - name: quotes-volume
-          mountPath: /etc/quotes/quotes.txt
-          subPath: quotes.txt
         ports:
         - containerPort: 5000
       volumes:
       - name: quotes-volume
         configMap:
-          name: quotes-file-config
+          name: quotes-config
           items:
           - key: quotes.txt
             path: quotes.txt
